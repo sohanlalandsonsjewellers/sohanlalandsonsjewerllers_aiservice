@@ -4,6 +4,9 @@ import uvicorn
 from fastapi.responses import Response
 from config import APP_PORT
 
+
+from app.routes.revenue import router as revenue_router
+
 app = FastAPI(
     title="Jewellery AI Service"
 )
@@ -31,6 +34,13 @@ async def health():
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
     return Response(status_code=204)
+
+
+app.include_router(
+    revenue_router,
+    prefix="/revenue",
+    tags=["Revenue"]
+)
 
 if __name__ == "__main__":
 
