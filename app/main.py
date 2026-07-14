@@ -4,8 +4,8 @@ import uvicorn
 from fastapi.responses import Response
 from config import APP_PORT
 
-
 from app.api.recommendation import router as recommendation_router
+from app.api.segmentation import router as segmentation_router
 
 app = FastAPI(
     title="Jewellery AI Service"
@@ -41,6 +41,12 @@ app.include_router(
     recommendation_router,
     prefix="/ai",
     tags=["AI Recommendation"]
+)
+
+app.include_router(
+    segmentation_router,
+    prefix="/ai",
+    tags=["AI Customer Segmentation"]
 )
 
 if __name__ == "__main__":
