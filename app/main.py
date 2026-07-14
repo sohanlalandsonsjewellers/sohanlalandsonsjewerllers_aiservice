@@ -6,6 +6,7 @@ from config import APP_PORT
 
 from app.api.recommendation import router as recommendation_router
 from app.api.segmentation import router as segmentation_router
+from app.api.inventory import router as inventory_router
 
 app = FastAPI(
     title="Jewellery AI Service"
@@ -47,6 +48,12 @@ app.include_router(
     segmentation_router,
     prefix="/ai",
     tags=["AI Customer Segmentation"]
+)
+
+app.include_router(
+    inventory_router,
+    prefix="/ai",
+    tags=["AI Inventory Insights"]
 )
 
 if __name__ == "__main__":
