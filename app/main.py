@@ -8,6 +8,7 @@ from app.api.recommendation import router as recommendation_router
 from app.api.segmentation import router as segmentation_router
 from app.api.inventory import router as inventory_router
 from app.api.demand import router as demand_router
+from app.api.sales import router as sales_router
 
 app = FastAPI(
     title="Jeweller AI Service"
@@ -62,6 +63,15 @@ app.include_router(
     prefix="/ai",
     tags=["AI Demand Forecast"]
 )
+
+app.include_router(
+    sales_router,
+    prefix="/ai",
+    tags=["Sales Forecast"]
+)
+
+
+
 
 if __name__ == "__main__":
 
