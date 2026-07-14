@@ -5,7 +5,7 @@ from fastapi.responses import Response
 from config import APP_PORT
 
 
-from app.routes.revenue import router as revenue_router
+from app.api.recommendation import router as recommendation_router
 
 app = FastAPI(
     title="Jewellery AI Service"
@@ -36,10 +36,11 @@ async def favicon():
     return Response(status_code=204)
 
 
+
 app.include_router(
-    revenue_router,
-    prefix="/revenue",
-    tags=["Revenue"]
+    recommendation_router,
+    prefix="/ai",
+    tags=["AI Recommendation"]
 )
 
 if __name__ == "__main__":
