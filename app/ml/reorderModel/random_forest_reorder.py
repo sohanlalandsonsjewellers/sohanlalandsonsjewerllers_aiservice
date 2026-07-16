@@ -1,0 +1,43 @@
+class RandomForestReorder:
+
+    """
+    Placeholder for future Random Forest model.
+
+    Current fallback uses linear business logic.
+    """
+
+    def predict(
+
+        self,
+
+        current_stock: int,
+
+        predicted_demand: int,
+
+        safety_stock: int
+
+    ):
+
+        reorder_qty = max(
+
+            0,
+
+            predicted_demand
+
+            +
+
+            safety_stock
+
+            -
+
+            current_stock
+
+        )
+
+        return {
+
+            "recommendedQty": reorder_qty,
+
+            "model": "RandomForestReorder"
+
+        }

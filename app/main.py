@@ -10,6 +10,7 @@ from app.api.inventory import router as inventory_router
 from app.api.demand import router as demand_router
 from app.api.sales import router as sales_router
 from app.api.business_summary import router as business_summary_router
+from app.api.reorder import router as reorder_router
 
 app = FastAPI(
     title="Jeweller AI Service"
@@ -75,6 +76,12 @@ app.include_router(
     business_summary_router,
     prefix="/ai",
     tags=["Business Intelligence"]
+)
+
+app.include_router(
+    reorder_router,
+    prefix="/ai",
+    tags=["Smart Reorder Engine"]
 )
 
 
