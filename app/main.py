@@ -12,6 +12,7 @@ from app.api.sales import router as sales_router
 from app.api.business_summary import router as business_summary_router
 from app.api.reorder import router as reorder_router
 from app.api.product_performance import router as product_performance_router
+from app.api.customer_analytics import router as customer_analytics_router
 
 app = FastAPI(
     title="Jeweller AI Service"
@@ -89,6 +90,12 @@ app.include_router(
     product_performance_router,
     prefix="/ai",
     tags=["Product Performance AI"]
+)
+
+app.include_router(
+    customer_analytics_router,
+    prefix="/ai",
+    tags=["Customer Analytics AI"]
 )
 
 
